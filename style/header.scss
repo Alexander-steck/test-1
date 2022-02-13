@@ -1,16 +1,4 @@
-
-*{
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-size: 1em;
-    font-family: Arial, Helvetica, sans-serif
-}
-
-@import 'grid.scss';
-@import 'header.scss';
-@import 'main.scss';
-/*%flex-row{
+%flex-row{
     display: flex;
     flex-direction: row; 
 }
@@ -19,31 +7,30 @@
     overflow: hidden;
     margin: 0 auto;
 }
-header{
+._header{
     overflow: hidden;
     background: url('../img/background01.png');
     background-size: 100%;
-    //background-attachment: fixed;
     background-position: 0px 48%;
     box-shadow: 0px 2px 2px #cccccc;
     filter: contrast(100%);
-    .header-wrapper{
+    ._header__wrapper{
         background-color: rgba(37, 37, 37, .3);
         padding-bottom: 136px;
         overflow: hidden;
         @extend %flex-row;
         overflow: hidden;
         
-        .header-block-left{
+        ._header__block-logo{
            overflow: hidden; 
         }
-        .header-block-right{
+        ._header__block-form{
             overflow: hidden; 
         }
     }
 }
-.header-block-left{
-    .logo{
+._header__block-logo{
+    ._header__logo{
         font-size: 5em;
         text-decoration: none;
         color: white;
@@ -59,7 +46,7 @@ header{
             letter-spacing: 0.2px;
         }
     }
-    h1{
+    ._header__title{
         margin: 10px 0 10px 21%;
         color: white;
         font-size: 2.1em;
@@ -68,28 +55,28 @@ header{
         line-height: 1.25em;
         cursor: pointer;
     }
-    .h1-line{
+    ._header__line{
         width: 65px;
         height: 2px;
         background-color: white;
-        margin-left: 22%;
+        margin-left: 21%;
         margin-bottom: 35px;
         margin-top: 33px;
         transition: .5s;
         transition-property: width;
         position: relative;
     }
-     h1:hover+.h1-line{
+    ._header__title:hover+._header__line{
         width: 70%; 
     }
-    p{
+    ._header__text{
         color: rgba(255, 255, 255, .5);
         font-size: 1em;
         line-height: 1.5em;
-        margin-left: 22%;
+        margin-left: 21%;
         margin-bottom: 38px;
     }
-    .Download_01{
+    ._header__Download{
         width: 135px;
         display: block;
         margin-left: 21.5%;
@@ -101,18 +88,19 @@ header{
         text-decoration: none;
         text-align: center;
     }
-    .Download_01:hover{
+    ._header__Download:hover{
         background-color: rgba(240, 233, 233, .2);
     }
 }
-form{
-    width: 52%;
+._form{
+    width: 360px;
     overflow: hidden;
     margin-top: 140px;
     margin-left: 27%;
+    margin-right: 0;
     background-color: white;
     border-radius: 5px;
-    p{
+    ._form__title{
         width: 100%;
         font-size: 1.2em;
         font-weight: bold;
@@ -124,7 +112,7 @@ form{
             color: #ff8b38;
         }
     }
-    .p-input-box{
+    ._form__input-box{
         width: 80%;
         margin-top:25px;
         padding-bottom: 5px;
@@ -134,7 +122,7 @@ form{
         font-size: 1em;
         text-align: left;
     }
-    .p-input-box2{
+    ._form__input-box2{
         width: 80%;
         margin-top:40px;
         padding-bottom: 3px;
@@ -147,27 +135,28 @@ form{
     input{
         padding-left: 6%;
         border: none;
+        outline: none;
     }
-    #form-submit{
+    ._form__submit{
         margin-top: 50px;
         padding: 17px 0;
         background-color: #ff8b38;
         color: white;
         font-weight: bolder;
     }
-    #form-submit:hover{
+    ._form__submit:hover{
         background-color: #ff8b38;
         opacity: 0.8;
         
     }
 }
-.wrapper-social-link{
+.block-social{
     background-color: white;
     overflow: hidden;
     padding: 23px 0;
     @extend %flex-row;
-    .box-social-left{  
-        p{
+    .block-social__wrapper-text{  
+        .block-social__text{
             margin-left: 25%;
             span{
                 font-size: 1.2em;
@@ -175,25 +164,24 @@ form{
                 letter-spacing: 1.2px;
             }
         }
-        p:nth-child(2){
+        .block-social__text:nth-child(2){
             color: #cccccc;
             font-size: .9em;
             line-height: 1.3em;
         }
     }
-    .box-social-right{
-        ul{
+    .block-social__icon{
+        overflow: hidden;
+        .icon-block{
             list-style: none;
-            li{
+            .icon-block__list{
                 display: inline-block;
                 height: 60px;
                 padding-top: 10px;
                 padding-bottom: 10px;
                 padding-right: 3%;
-                a{
+                .icon-block__link{
                     display: inline-block;
-                    //width: 55px;
-                    //height: 55px;
                     i{
                         color: #cccccc;
                         font-size: 40px;
@@ -215,95 +203,83 @@ form{
 
 @media only screen and (max-width: 1400px) {
     .container{
-        width: 100%;
-        
+        width: 100%; 
     }
-    header{
+    ._header{
         background-size: cover;
         background-repeat: no-repeat;
         background-position: center center;
-       
     }
 }
 @media only screen and (max-width: 1250px) {
-    .header-block-left{
-        .logo{
-            font-size: 4em;
+    ._header__block-logo{
+
+        ._header__logo{
+            font-size: calc(4em + (5 - 4)*(100vw - 320px) / (1250 - 320));
         }
-        h1{
-            font-size: 1.5em;
+        ._header__title{
+            font-size: calc(1.5em + (5 - 1.5)*(100vw - 320px) / (1250 - 320));
         }
     }
-    .header-block-right{
+
+    ._header__block-form{
         form{
-            .p-input-box{
-                margin-top: 7px;
-            }
-        }
-    }
-}
-@media only screen and (max-width: 1100px){
-    .header-block-right{
-        form{
-            width: 65%;
-            .p-input-box2{
-                margin-top: 20px;
-            }
-        }
-    }
-}
-@media only screen and (max-width: 850px){
-    .header-wrapper{
-        padding-bottom: 50px;
-    }
-    .header-block-left{
-        .logo{
-            margin-left: 10%;
-        }
-        h1{
-            margin-left: 10%;
-        }
-        .h1-line{
             margin-left: 11%;
         }
-        p{
-            margin-left: 10%;
-        }
-        .Download_01{
-            margin-left: 10%;
-        }
     }
-    .header-block-right{
-        form{
-            margin-left: 5%;
-            width: 75%;
-            .p-input-box2{
-                margin-top: 20px;
-            }
-        }
-    }
-    
 }
-@media only screen and (max-width: 760px){
-    .header-block-left{
-        .logo{
-            font-size: 2em;
-            margin-top: 25px;
+
+@media only screen and (max-width: 860px){
+    ._header{
+        ._header__wrapper{
+            padding-bottom: 50px;
+            flex-direction: column;
         }
-        h1{
-            font-size: 1.2em;
-        }
-        p{
-            width: 100%;
-        }
-    }
-    .header-block-right{
-        form{
+        ._header__block-logo{
             width: 90%;
-            margin-top: 70px;
-            p{
-                font-size: 1em;
+            margin: 0 auto;
+            ._header__logo{
+                margin-left: 0;
+            }
+            ._header__title{
+                margin-left: 0;
+                width: 100%;
+            }
+            ._header__line{
+                margin-left: 0;
+            }
+            ._header__text{
+                margin-left: 0;
+                width: 100%;
+            }
+            ._header__Download{
+                margin-left: 0;
+            }
+        }
+        ._header__block-form{
+        width: 90%;
+        margin: 0 auto;
+        }
+        ._header__block-form{
+            ._form{
+                width: 100%;
+                margin: 40px auto 0 auto;
             }
         }
     }
-}*/
+    .block-social{
+        flex-direction: column;
+       
+        .block-social__wrapper-text{
+            width: 90%;
+            margin: 0 auto 0 auto;
+            .block-social__text{
+                margin-left: 0;
+            }
+        }
+        .block-social__icon{
+            width: 90%;
+            margin: 0 auto 0 auto;
+        }
+    }
+}
