@@ -16,7 +16,7 @@
     filter: contrast(100%);
     ._header__wrapper{
         background-color: rgba(37, 37, 37, .3);
-        padding-bottom: 136px;
+        padding-bottom: 138px;
         overflow: hidden;
         @extend %flex-row;
         overflow: hidden;
@@ -114,7 +114,7 @@
     }
     ._form__input-box{
         width: 80%;
-        margin-top:25px;
+        margin-top:40px;
         padding-bottom: 5px;
         margin-left: 10%;
         border-bottom: 2px solid #f5f5f5;
@@ -124,7 +124,7 @@
     }
     ._form__input-box2{
         width: 80%;
-        margin-top:40px;
+        margin-top:55px;
         padding-bottom: 3px;
         margin-left: 10%;
         border-bottom: 2px solid #f5f5f5;
@@ -138,8 +138,8 @@
         outline: none;
     }
     ._form__submit{
-        margin-top: 50px;
-        padding: 17px 0;
+        margin-top: 48px;
+        padding: 18px 0;
         background-color: #ff8b38;
         color: white;
         font-weight: bolder;
@@ -157,7 +157,7 @@
     @extend %flex-row;
     .block-social__wrapper-text{  
         .block-social__text{
-            margin-left: 25%;
+            margin-left: 26%;
             span{
                 font-size: 1.2em;
                 font-weight: bold;

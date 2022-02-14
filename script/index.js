@@ -1,16 +1,7 @@
-//import '../index.html';
-//import font from"../font_Social/css/fontello.css";
-//import css from"../style/css.css";
-/*import background01 from "../img/background01.png";
-import picture01 from "../img/picture01.png";
-import picture02 from "../img/picture02.png";
-import m01 from "../img/m01.png";
-import m02 from "../img/m02.png";*/
-//import stylesheetUrl from "file-loader!extract-loader!css-loader!main.css";
 
+import "../style/css.css";
+import "../fonts/css/fontello.css";
 document.addEventListener("DOMContentLoaded", TabFunctional);
-
-
 
 function TabFunctional() {
     (()=>{
